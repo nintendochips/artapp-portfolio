@@ -1,5 +1,5 @@
 /* =========================
-   ULTRA-PREMIUM LIQUID GLASS UI
+   ULTRA-PREMIUM LIQUID GLASS UI - OPTIMIZED
    ========================= */
 
 *,
@@ -64,9 +64,9 @@ body{
   font-family: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(1200px 800px at 18% 8%, rgba(59,130,246,.4), transparent 65%),
-    radial-gradient(1000px 800px at 82% 15%, rgba(250,187,36,.28), transparent 62%),
-    radial-gradient(1000px 800px at 50% 95%, rgba(168,85,247,.2), transparent 62%),
+    radial-gradient(1200px 800px at 18% 8%, rgba(59,130,246,.35), transparent 65%),
+    radial-gradient(1000px 800px at 82% 15%, rgba(250,187,36,.25), transparent 62%),
+    radial-gradient(1000px 800px at 50% 95%, rgba(168,85,247,.18), transparent 62%),
     linear-gradient(180deg, var(--bg), var(--bg2));
   background-attachment: fixed;
   overflow-x: hidden;
@@ -75,7 +75,7 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Enhanced Floating Blobs */
+/* Optimized Floating Blobs - Reduced blur */
 body::before,
 body::after{
   content: "";
@@ -83,25 +83,25 @@ body::after{
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  filter: blur(100px);
-  opacity: .6;
+  filter: blur(80px);
+  opacity: .5;
   pointer-events: none;
   z-index: -1;
+  will-change: transform;
   animation: floaty 15s ease-in-out infinite;
-  mix-blend-mode: screen;
 }
 
 body::before{
   top: -200px;
   left: -180px;
-  background: radial-gradient(circle at 35% 35%, rgba(59,130,246,.7), rgba(59,130,246,.3) 50%, transparent 70%);
+  background: radial-gradient(circle at 35% 35%, rgba(59,130,246,.6), rgba(59,130,246,.25) 50%, transparent 70%);
   animation-delay: -2s;
 }
 
 body::after{
   bottom: -240px;
   right: -200px;
-  background: radial-gradient(circle at 35% 35%, rgba(250,187,36,.6), rgba(250,187,36,.25) 50%, transparent 70%);
+  background: radial-gradient(circle at 35% 35%, rgba(250,187,36,.5), rgba(250,187,36,.2) 50%, transparent 70%);
   animation-duration: 18s;
 }
 
@@ -142,7 +142,7 @@ a{
 }
 
 /* =========================
-   ULTRA-PREMIUM GLASS EFFECTS
+   OPTIMIZED GLASS EFFECTS
    ========================= */
 
 .glass{
@@ -150,57 +150,42 @@ a{
   border: 1px solid var(--stroke-soft);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
   position: relative;
   overflow: hidden;
+  /* Performance optimization */
+  transform: translateZ(0);
+  will-change: auto;
 }
 
-/* Multi-layer specular highlights */
+/* Simplified highlights */
 .glass::before{
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(800px 400px at 25% 0%, rgba(255,255,255,.3), transparent 60%),
-    linear-gradient(135deg, rgba(255,255,255,.25) 0%, transparent 50%),
-    radial-gradient(600px 300px at 75% 100%, rgba(255,255,255,.15), transparent 50%);
-  opacity: .8;
+    radial-gradient(800px 400px at 25% 0%, rgba(255,255,255,.25), transparent 60%),
+    linear-gradient(135deg, rgba(255,255,255,.2) 0%, transparent 50%);
+  opacity: .7;
   pointer-events: none;
-  mix-blend-mode: overlay;
 }
 
-/* Animated grain texture */
-.glass::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: 
-    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,.03) 2px, rgba(255,255,255,.03) 4px);
-  opacity: .4;
-  pointer-events: none;
-  animation: grain 8s steps(10) infinite;
-}
-
-@keyframes grain{
-  0%, 100%{ transform: translate(0, 0); }
-  10%{ transform: translate(-5%, -10%); }
-  30%{ transform: translate(3%, -15%); }
-  50%{ transform: translate(12%, 9%); }
-  70%{ transform: translate(-9%, 4%); }
-  90%{ transform: translate(-1%, -7%); }
-}
+/* Removed animated grain - causes lag */
 
 .glass-card{
   background: var(--glass-strong);
   border: 1px solid var(--stroke);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
   position: relative;
   overflow: hidden;
   transition: all var(--transition-smooth);
+  /* Performance optimization */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .glass-card::before{
@@ -208,47 +193,35 @@ a{
   position: absolute;
   inset: -1px;
   background: 
-    radial-gradient(600px 300px at 20% 0%, rgba(255,255,255,.28), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,.1) 0%, transparent 60%);
+    radial-gradient(600px 300px at 20% 0%, rgba(255,255,255,.25), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.08) 0%, transparent 60%);
   pointer-events: none;
-  opacity: .9;
+  opacity: .8;
   border-radius: inherit;
 }
 
-/* Glow effect on hover */
-.glass-card::after{
-  content: "";
-  position: absolute;
-  inset: -100%;
-  background: radial-gradient(circle at center, rgba(250,187,36,.3), transparent 70%);
-  opacity: 0;
-  transition: opacity var(--transition-smooth);
-  pointer-events: none;
-}
-
 .glass-card:hover{
-  transform: translateY(-6px) scale(1.01);
+  transform: translateY(-6px) translateZ(0);
   box-shadow: var(--shadow-xl);
   border-color: var(--stroke-bright);
 }
 
-.glass-card:hover::after{
-  opacity: .6;
-}
-
 /* =========================
-   PREMIUM HEADER / NAV
+   OPTIMIZED HEADER / NAV
    ========================= */
 
 .site-header{
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10,14,26,.85);
+  background: rgba(10,14,26,.9);
   border-bottom: 1px solid var(--stroke-soft);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
   box-shadow: 0 4px 24px rgba(0,0,0,.3);
+  /* Performance optimization */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .nav-container{
@@ -283,19 +256,14 @@ a{
     inset 0 2px 4px rgba(255,255,255,.3);
   position: relative;
   overflow: hidden;
-  animation: pulse 3s ease-in-out infinite;
-}
-
-@keyframes pulse{
-  0%, 100%{ box-shadow: 0 8px 24px rgba(251,191,36,.4), 0 0 0 1px rgba(255,255,255,.2), inset 0 2px 4px rgba(255,255,255,.3); }
-  50%{ box-shadow: 0 12px 32px rgba(251,191,36,.6), 0 0 0 1px rgba(255,255,255,.3), inset 0 2px 4px rgba(255,255,255,.4); }
+  /* Simplified animation */
 }
 
 .logo-mark::before{
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,.4) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(255,255,255,.35) 0%, transparent 60%);
   border-radius: inherit;
 }
 
@@ -305,9 +273,6 @@ a{
   font-size: .95rem;
   font-weight: 700;
   color: var(--text);
-  background: linear-gradient(135deg, var(--text), var(--text-soft));
-  -webkit-background-clip: text;
-  background-clip: text;
 }
 
 .main-nav{
@@ -341,7 +306,6 @@ a{
   transform-origin: center;
   transition: transform var(--transition-smooth);
   background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
-  box-shadow: 0 0 12px rgba(251,191,36,.6);
 }
 
 .main-nav a.active{
@@ -354,7 +318,7 @@ a{
 }
 
 /* =========================
-   HERO SECTION - ULTRA PREMIUM
+   HERO SECTION - OPTIMIZED
    ========================= */
 
 .hero{ 
@@ -393,12 +357,6 @@ a{
   border-radius: 50%;
   background: linear-gradient(135deg, var(--accent-gold), var(--accent-blue));
   box-shadow: 0 0 8px rgba(251,191,36,.8);
-  animation: blink 2s ease-in-out infinite;
-}
-
-@keyframes blink{
-  0%, 100%{ opacity: 1; }
-  50%{ opacity: .4; }
 }
 
 .hero-title{
@@ -443,7 +401,7 @@ a{
   background: var(--glass-subtle);
   border: 1px solid var(--stroke-soft);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(12px);
 }
 
 .hero-meta > div{
@@ -490,11 +448,14 @@ a{
   box-shadow: 
     var(--shadow-md),
     inset 0 1px 0 rgba(255,255,255,.2);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
   transition: all var(--transition-smooth);
   position: relative;
   overflow: hidden;
+  /* Performance optimization */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .primary-btn::before{
@@ -507,7 +468,7 @@ a{
 }
 
 .primary-btn:hover{
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-3px) translateZ(0);
   box-shadow: 
     var(--shadow-xl),
     0 0 40px rgba(251,191,36,.4),
@@ -520,7 +481,7 @@ a{
 }
 
 .primary-btn:active{
-  transform: translateY(-1px) scale(1.01);
+  transform: translateY(-1px) translateZ(0);
 }
 
 .primary-btn::after{
@@ -535,7 +496,7 @@ a{
   transform: translateX(4px);
 }
 
-/* Hero Card - Enhanced */
+/* Hero Card - Optimized */
 .hero-card{ 
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -548,10 +509,12 @@ a{
   object-fit: cover;
   filter: saturate(1.1) contrast(1.05);
   transition: transform var(--transition-slow);
+  /* Performance optimization */
+  will-change: transform;
 }
 
 .hero-card:hover img{
-  transform: scale(1.05);
+  transform: scale(1.05) translateZ(0);
 }
 
 .hero-card-info{ 
@@ -662,11 +625,14 @@ a{
   cursor: pointer;
   font-weight: 600;
   font-size: .9rem;
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
   transition: all var(--transition-smooth);
   position: relative;
   overflow: hidden;
+  /* Performance optimization */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .filter-btn::before{
@@ -679,7 +645,7 @@ a{
 }
 
 .filter-btn:hover{ 
-  transform: translateY(-2px);
+  transform: translateY(-2px) translateZ(0);
   border-color: var(--stroke);
   box-shadow: var(--shadow-sm);
 }
@@ -702,7 +668,7 @@ a{
 }
 
 /* =========================
-   GALLERY GRID - ENHANCED
+   GALLERY GRID - OPTIMIZED
    ========================= */
 
 .gallery-section{ 
@@ -739,6 +705,9 @@ a{
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition-smooth);
+  /* Performance optimization */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .photo-card img{
@@ -747,10 +716,12 @@ a{
   object-fit: cover;
   filter: saturate(1.1) contrast(1.05);
   transition: transform var(--transition-slow);
+  /* Performance optimization */
+  will-change: transform;
 }
 
 .photo-card:hover img{
-  transform: scale(1.08);
+  transform: scale(1.08) translateZ(0);
 }
 
 .photo-card figcaption{
@@ -792,7 +763,7 @@ a{
 }
 
 /* =========================
-   REFLECTION - PREMIUM
+   REFLECTION - OPTIMIZED
    ========================= */
 
 .reflection-section{ 
@@ -816,7 +787,7 @@ a{
   background: var(--glass-subtle);
   border: 1px solid var(--stroke-soft);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(12px);
 }
 
 .guide-questions h2{
@@ -836,7 +807,7 @@ a{
 }
 
 /* =========================
-   FOOTER - PREMIUM
+   FOOTER - OPTIMIZED
    ========================= */
 
 .site-footer{
@@ -844,8 +815,8 @@ a{
   padding: 2rem 0;
   border-top: 1px solid var(--stroke-soft);
   background: var(--glass-subtle);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
   color: var(--muted);
   font-size: .9rem;
   text-align: center;
@@ -910,41 +881,4 @@ a{
   .reflection-card{
     padding: 2rem 1.75rem;
   }
-}
-
-/* =========================
-   ANIMATIONS & EFFECTS
-   ========================= */
-
-@keyframes fadeInUp{
-  from{
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to{
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in-up{
-  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* Stagger animation for lists */
-.theme-card:nth-child(1){ animation-delay: 0s; }
-.theme-card:nth-child(2){ animation-delay: 0.1s; }
-.theme-card:nth-child(3){ animation-delay: 0.2s; }
-.theme-card:nth-child(4){ animation-delay: 0.3s; }
-
-/* Smooth reveal on scroll */
-[data-animate]{
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-animate].visible{
-  opacity: 1;
-  transform: translateY(0);
 }
