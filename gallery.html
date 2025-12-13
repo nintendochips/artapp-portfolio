@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Photography Portfolio – Gallery</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">[Portfolio Title Here]</span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="reflection.html">Reflection</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Gallery</h1>
+        <p>
+          The images are grouped by visual theme. Click a theme to focus on that
+          collection.
+        </p>
+
+        <div class="theme-filter">
+          <button class="filter-btn active" data-theme="all">All Themes</button>
+          <button class="filter-btn" data-theme="light-shadow">Light &amp; Shadow</button>
+          <button class="filter-btn" data-theme="geometry">Lines &amp; Geometry</button>
+          <button class="filter-btn" data-theme="everyday">Everyday Stories</button>
+          <button class="filter-btn" data-theme="texture">Texture &amp; Detail</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- THEME SECTIONS -->
+    <section class="gallery-section">
+      <div class="container">
+
+        <!-- Light & Shadow -->
+        <div class="theme-section glass" data-theme-section="light-shadow">
+          <h2>Light &amp; Shadow</h2>
+          <p class="theme-description">
+            Images that explore contrast, silhouettes, and the way light shapes space.
+          </p>
+
+          <div class="photo-grid">
+            <!-- Duplicate this block for more photos -->
+            <figure class="photo-card glass-card">
+              <img src="images/light-shadow-1.jpg" alt="Light & Shadow 1" />
+              <figcaption>
+                <h3>[Photo Title Here]</h3>
+                <p>
+                  <!-- Required caption + explanation -->
+                  [Short explanation of how light and shadow create mood, focus, or meaning in this image.]
+                </p>
+                <span class="photo-meta">Photographer: [Member Name]</span>
+              </figcaption>
+            </figure>
+
+            <figure class="photo-card glass-card">
+              <img src="images/light-shadow-2.jpg" alt="Light & Shadow 2" />
+              <figcaption>
+                <h3>[Photo Title Here]</h3>
+                <p>[Explanation for second image.]</p>
+                <span class="photo-meta">Photographer: [Member Name]</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Lines & Geometry -->
+        <div class="theme-section" data-theme-section="geometry">
+          <h2>Lines &amp; Geometry</h2>
+          <p class="theme-description">
+            Focused on architectural forms, patterns, and strong lines that guide the eye.
+          </p>
+
+          <div class="photo-grid">
+            <figure class="photo-card glass-card">
+              <img src="images/geometry-1.jpg" alt="Geometry 1" />
+              <figcaption>
+                <h3>[Photo Title Here]</h3>
+                <p>[Explain how lines/geometry affect composition and meaning.]</p>
+                <span class="photo-meta">Photographer: [Member Name]</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Everyday Stories -->
+        <div class="theme-section" data-theme-section="everyday">
+          <h2>Everyday Stories</h2>
+          <p class="theme-description">
+            Simple, candid scenes that suggest a narrative in daily life.
+          </p>
+
+          <div class="photo-grid">
+            <figure class="photo-card glass-card">
+              <img src="images/everyday-1.jpg" alt="Everyday Stories 1" />
+              <figcaption>
+                <h3>[Photo Title Here]</h3>
+                <p>[What is happening? What emotion or story does this moment suggest?]</p>
+                <span class="photo-meta">Photographer: [Member Name]</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Texture & Detail -->
+        <div class="theme-section" data-theme-section="texture">
+          <h2>Texture &amp; Detail</h2>
+          <p class="theme-description">
+            Close-up views that highlight surface, material, and tactile qualities.
+          </p>
+
+          <div class="photo-grid">
+            <figure class="photo-card glass-card">
+              <img src="images/texture-1.jpg" alt="Texture 1" />
+              <figcaption>
+                <h3>[Photo Title Here]</h3>
+                <p>[Describe what the viewer might feel or notice about this texture.]</p>
+                <span class="photo-meta">Photographer: [Member Name]</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> [Group Name Here] – Art Appreciation</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
