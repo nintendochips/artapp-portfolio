@@ -5,6 +5,105 @@ document.addEventListener("DOMContentLoaded", () => {
     yearSpan.textContent = new Date().getFullYear();
   }
 
+  // Hero Carousel - Auto-rotating themes
+  const carouselImage = document.getElementById("carousel-image");
+  const carouselTitle = document.getElementById("carousel-title");
+  const carouselCaption = document.getElementById("carousel-caption");
+  const indicators = document.querySelectorAll(".indicator");
+  
+  const themes = [
+    {
+      image: "images/light-shadow-1.jpg",
+      title: "Light & Shadow",
+      caption: "Exploring contrast, silhouettes, and subtle gradients of light."
+    },
+    {
+      image: "images/geometry-1.jpg",
+      title: "Lines & Geometry",
+      caption: "Architectural forms, repeating patterns, and strong directional lines."
+    },
+    {
+      image: "images/everyday-1.jpg",
+      title: "Everyday Stories",
+      caption: "Scenes from daily life that hint at small narratives and emotions."
+    },
+    {
+      image: "images/texture-1.jpg",
+      title: "Texture & Detail",
+      caption: "Close-up observations that highlight surfaces, materials, and touch."
+    },
+    {
+      image: "images/flex-1.jpg",
+      title: "[Your Flex Theme]",
+      caption: "[Description of your chosen flex theme.]"
+    }
+  ];
+
+  let currentIndex = 0;
+  let autoplayInterval;
+
+  function updateCarousel(index) {
+    // Fade out
+    if (carouselImage && carouselTitle && carouselCaption) {
+      carouselImage.style.opacity = "0";
+      carouselTitle.style.opacity = "0";
+      carouselCaption.style.opacity = "0";
+
+      setTimeout(() => {
+        // Update content
+        carouselImage.src = themes[index].image;
+        carouselTitle.textContent = themes[index].title;
+        carouselCaption.textContent = themes[index].caption;
+
+        // Fade in
+        carouselImage.style.opacity = "1";
+        carouselTitle.style.opacity = "1";
+        carouselCaption.style.opacity = "1";
+      }, 300);
+
+      // Update indicators
+      indicators.forEach((indicator, i) => {
+        if (i === index) {
+          indicator.classList.add("active");
+        } else {
+          indicator.classList.remove("active");
+        }
+      });
+    }
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % themes.length;
+    updateCarousel(currentIndex);
+  }
+
+  // Auto-play carousel every 4 seconds
+  if (carouselImage) {
+    autoplayInterval = setInterval(nextSlide, 4000);
+
+    // Click indicators to change manually
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener("click", () => {
+        currentIndex = index;
+        updateCarousel(index);
+        // Reset autoplay
+        clearInterval(autoplayInterval);
+        autoplayInterval = setInterval(nextSlide, 4000);
+      });
+    });
+
+    // Pause on hover
+    const heroCard = document.getElementById("hero-carousel");
+    if (heroCard) {
+      heroCard.addEventListener("mouseenter", () => {
+        clearInterval(autoplayInterval);
+      });
+      heroCard.addEventListener("mouseleave", () => {
+        autoplayInterval = setInterval(nextSlide, 4000);
+      });
+    }
+  }
+
   // Theme filter on gallery page
   const buttons = document.querySelectorAll(".filter-btn");
   const sections = document.querySelectorAll(".theme-section");
