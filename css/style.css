@@ -588,6 +588,43 @@ a{
   line-height: 1.7;
 }
 
+/* Interactive Theme Links */
+.theme-link{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.theme-link .theme-arrow{
+  position: absolute;
+  top: 2rem;
+  right: 1.75rem;
+  font-size: 1.5rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all var(--transition-smooth);
+  color: var(--accent-gold);
+}
+
+.theme-link:hover .theme-arrow{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.theme-link:hover h3{
+  color: var(--text);
+  transform: translateX(3px);
+  transition: all var(--transition-smooth);
+}
+
+.theme-link:active{
+  transform: scale(0.98) translateZ(0);
+}
+
 /* =========================
    PAGE HEADER + FILTER
    ========================= */
