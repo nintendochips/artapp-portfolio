@@ -785,12 +785,15 @@ a{
 
 .photo-grid{
   margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
+}
+
+.photo-card{
+  flex: 1 1 calc(33.333% - 1.5rem);
+  min-width: 280px;
 }
 
 .photo-card{
@@ -970,9 +973,17 @@ a{
     font-size: 1.75rem;
   }
   
-  .theme-grid,
-  .photo-grid{
+  .theme-grid{
     grid-template-columns: 1fr;
+  }
+  
+  .photo-grid{
+    flex-direction: column;
+  }
+  
+  .photo-card{
+    flex: 1 1 100%;
+    min-width: 100%;
   }
   
   .hero-meta{
