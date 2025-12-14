@@ -238,6 +238,8 @@ a{
   user-select: none;
   cursor: pointer;
   transition: transform var(--transition-fast);
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo:hover{
