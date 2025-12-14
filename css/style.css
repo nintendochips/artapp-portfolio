@@ -785,15 +785,9 @@ a{
 
 .photo-grid{
   margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  width: 100%;
-}
-
-.photo-card{
-  flex: 1 1 calc(33.333% - 1.5rem);
-  min-width: 280px;
 }
 
 .photo-card{
@@ -802,8 +796,6 @@ a{
   transition: all var(--transition-smooth);
   transform: translateZ(0);
   will-change: transform;
-  box-sizing: border-box;
-  max-width: 100%;
 }
 
 .photo-card img{
@@ -973,17 +965,9 @@ a{
     font-size: 1.75rem;
   }
   
-  .theme-grid{
-    grid-template-columns: 1fr;
-  }
-  
+  .theme-grid,
   .photo-grid{
-    flex-direction: column;
-  }
-  
-  .photo-card{
-    flex: 1 1 100%;
-    min-width: 100%;
+    grid-template-columns: 1fr;
   }
   
   .hero-meta{
