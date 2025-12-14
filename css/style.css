@@ -783,8 +783,36 @@ a{
 .photo-grid{
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  max-width: 1100px;
+}
+
+/* When there are 5 items, center the last 2 */
+.photo-grid .photo-card:nth-last-child(2):nth-child(4),
+.photo-grid .photo-card:nth-last-child(1):nth-child(5) {
+  grid-column: span 1;
+}
+
+.photo-grid .photo-card:nth-child(4) {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.photo-grid .photo-card:nth-child(5) {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Ensure the 4th and 5th items are centered together */
+.photo-grid:has(.photo-card:nth-child(5):last-child) .photo-card:nth-child(4) {
+  grid-column: 1 / 2;
+  margin-left: 25%;
+}
+
+.photo-grid:has(.photo-card:nth-child(5):last-child) .photo-card:nth-child(5) {
+  grid-column: 2 / 3;
+  margin-right: 25%;
 }
 
 .photo-card{
@@ -800,7 +828,7 @@ a{
   height: 280px;
   width: 100%;
   object-fit: cover;
-  filter: saturate(1.1) contrast(1.05);
+  filter: saturate(1.1) contrast(1.05) brightness(0.92);
   transition: transform var(--transition-slow);
   /* Performance optimization */
   will-change: transform;
@@ -963,9 +991,18 @@ a{
     font-size: 1.75rem;
   }
   
-  .theme-grid,
+  .theme-grid{
+    grid-template-columns: 1fr;
+  }
+  
   .photo-grid{
     grid-template-columns: 1fr;
+  }
+  
+  .photo-grid .photo-card:nth-child(4),
+  .photo-grid .photo-card:nth-child(5) {
+    margin: 0;
+    grid-column: 1;
   }
   
   .hero-meta{
