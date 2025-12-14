@@ -759,6 +759,7 @@ a{
 
 .gallery-section{ 
   padding: 1.5rem 0 5rem;
+  overflow-x: hidden;
 }
 
 .theme-section{ 
@@ -788,6 +789,8 @@ a{
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .photo-card{
@@ -796,6 +799,8 @@ a{
   transition: all var(--transition-smooth);
   transform: translateZ(0);
   will-change: transform;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .photo-card img{
