@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Photography Portfolio – Gallery</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -35,6 +36,7 @@
           <button class="filter-btn" data-theme="geometry">Lines &amp; Geometry</button>
           <button class="filter-btn" data-theme="everyday">Everyday Stories</button>
           <button class="filter-btn" data-theme="texture">Texture &amp; Detail</button>
+          <button class="filter-btn" data-theme="flex-theme">[Your Flex Theme]</button>
         </div>
       </div>
     </section>
@@ -44,20 +46,18 @@
       <div class="container">
 
         <!-- Light & Shadow -->
-        <div class="theme-section glass" data-theme-section="light-shadow">
+        <div id="light-shadow" class="theme-section glass" data-theme-section="light-shadow">
           <h2>Light &amp; Shadow</h2>
           <p class="theme-description">
             Images that explore contrast, silhouettes, and the way light shapes space.
           </p>
 
           <div class="photo-grid">
-            <!-- Duplicate this block for more photos -->
             <figure class="photo-card glass-card">
               <img src="images/light-shadow-1.jpg" alt="Light & Shadow 1" />
               <figcaption>
                 <h3>[Photo Title Here]</h3>
                 <p>
-                  <!-- Required caption + explanation -->
                   [Short explanation of how light and shadow create mood, focus, or meaning in this image.]
                 </p>
                 <span class="photo-meta">Photographer: [Member Name]</span>
@@ -72,11 +72,13 @@
                 <span class="photo-meta">Photographer: [Member Name]</span>
               </figcaption>
             </figure>
+
+            <!-- Add more photos here -->
           </div>
         </div>
 
         <!-- Lines & Geometry -->
-        <div class="theme-section" data-theme-section="geometry">
+        <div id="geometry" class="theme-section" data-theme-section="geometry">
           <h2>Lines &amp; Geometry</h2>
           <p class="theme-description">
             Focused on architectural forms, patterns, and strong lines that guide the eye.
@@ -91,11 +93,13 @@
                 <span class="photo-meta">Photographer: [Member Name]</span>
               </figcaption>
             </figure>
+
+            <!-- Add more photos here -->
           </div>
         </div>
 
         <!-- Everyday Stories -->
-        <div class="theme-section" data-theme-section="everyday">
+        <div id="everyday" class="theme-section" data-theme-section="everyday">
           <h2>Everyday Stories</h2>
           <p class="theme-description">
             Simple, candid scenes that suggest a narrative in daily life.
@@ -110,11 +114,13 @@
                 <span class="photo-meta">Photographer: [Member Name]</span>
               </figcaption>
             </figure>
+
+            <!-- Add more photos here -->
           </div>
         </div>
 
         <!-- Texture & Detail -->
-        <div class="theme-section" data-theme-section="texture">
+        <div id="texture" class="theme-section" data-theme-section="texture">
           <h2>Texture &amp; Detail</h2>
           <p class="theme-description">
             Close-up views that highlight surface, material, and tactile qualities.
@@ -129,6 +135,40 @@
                 <span class="photo-meta">Photographer: [Member Name]</span>
               </figcaption>
             </figure>
+
+            <!-- Add more photos here -->
+          </div>
+        </div>
+
+        <!-- Flex Theme (5th Theme) -->
+        <div id="flex-theme" class="theme-section" data-theme-section="flex-theme">
+          <h2>[Your Flex Theme Title]</h2>
+          <p class="theme-description">
+            [Description of your chosen flex theme. This is your group's creative choice - 
+            it could be Campus Life Aesthetics, City Moods, Textures & Patterns, Daily Objects But Make It Art, 
+            Unfiltered Moments, Youth in Motion, or any other theme your group wants to explore.]
+          </p>
+
+          <div class="photo-grid">
+            <figure class="photo-card glass-card">
+              <img src="images/flex-1.jpg" alt="Flex Theme 1" />
+              <figcaption>
+                <h3>[Photo Title Here]</h3>
+                <p>[Explanation of how this photo fits your flex theme.]</p>
+                <span class="photo-meta">Photographer: [Member Name]</span>
+              </figcaption>
+            </figure>
+
+            <figure class="photo-card glass-card">
+              <img src="images/flex-2.jpg" alt="Flex Theme 2" />
+              <figcaption>
+                <h3>[Photo Title Here]</h3>
+                <p>[Explanation for second image.]</p>
+                <span class="photo-meta">Photographer: [Member Name]</span>
+              </figcaption>
+            </figure>
+
+            <!-- Add more photos here -->
           </div>
         </div>
 
