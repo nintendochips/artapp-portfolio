@@ -11,31 +11,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const carouselCaption = document.getElementById("carousel-caption");
   const indicators = document.querySelectorAll(".indicator");
   
+  // Use placeholder SVGs if images don't exist yet
   const themes = [
     {
       image: "images/light-shadow-1.jpg",
       title: "Light & Shadow",
-      caption: "Exploring contrast, silhouettes, and subtle gradients of light."
+      caption: "Exploring contrast, silhouettes, and subtle gradients of light.",
+      fallback: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23374151' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle' dy='.3em'%3ELight %26 Shadow%3C/text%3E%3C/svg%3E"
     },
     {
       image: "images/geometry-1.jpg",
       title: "Lines & Geometry",
-      caption: "Architectural forms, repeating patterns, and strong directional lines."
+      caption: "Architectural forms, repeating patterns, and strong directional lines.",
+      fallback: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23475569' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle' dy='.3em'%3ELines %26 Geometry%3C/text%3E%3C/svg%3E"
     },
     {
       image: "images/everyday-1.jpg",
       title: "Everyday Stories",
-      caption: "Scenes from daily life that hint at small narratives and emotions."
+      caption: "Scenes from daily life that hint at small narratives and emotions.",
+      fallback: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23581c87' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle' dy='.3em'%3EEveryday Stories%3C/text%3E%3C/svg%3E"
     },
     {
       image: "images/texture-1.jpg",
       title: "Texture & Detail",
-      caption: "Close-up observations that highlight surfaces, materials, and touch."
+      caption: "Close-up observations that highlight surfaces, materials, and touch.",
+      fallback: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23831843' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle' dy='.3em'%3ETexture %26 Detail%3C/text%3E%3C/svg%3E"
     },
     {
       image: "images/flex-1.jpg",
       title: "[Your Flex Theme]",
-      caption: "[Description of your chosen flex theme.]"
+      caption: "[Description of your chosen flex theme.]",
+      fallback: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23064e3b' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle' dy='.3em'%3EFlex Theme%3C/text%3E%3C/svg%3E"
     }
   ];
 
@@ -50,8 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
       carouselCaption.style.opacity = "0";
 
       setTimeout(() => {
-        // Update content
-        carouselImage.src = themes[index].image;
+        // Try to load real image, fallback to placeholder if it fails
+        const img = new Image();
+        img.onload = function() {
+          carouselImage.src = themes[index].image;
+        };
+        img.onerror = function() {
+          carouselImage.src = themes[index].fallback;
+        };
+        img.src = themes[index].image;
+
         carouselTitle.textContent = themes[index].title;
         carouselCaption.textContent = themes[index].caption;
 
