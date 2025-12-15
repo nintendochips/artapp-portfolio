@@ -181,4 +181,26 @@ document.addEventListener("DOMContentLoaded", () => {
     card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(card);
   });
+
+  // Scroll to Top Button
+  const scrollTopBtn = document.querySelector('.scroll-to-top');
+  
+  if (scrollTopBtn) {
+    // Show/hide button on scroll
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    // Scroll to top on click
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
 });
