@@ -91,9 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCarousel(currentIndex);
   }
 
-  // Auto-play carousel every 4 seconds
+  // Auto-play carousel every 3 seconds (faster)
   if (carouselImage) {
-    autoplayInterval = setInterval(nextSlide, 4000);
+    autoplayInterval = setInterval(nextSlide, 3000);
 
     // Click indicators to change manually
     indicators.forEach((indicator, index) => {
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCarousel(index);
         // Reset autoplay
         clearInterval(autoplayInterval);
-        autoplayInterval = setInterval(nextSlide, 4000);
+        autoplayInterval = setInterval(nextSlide, 3000);
       });
     });
 
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(autoplayInterval);
       });
       heroCard.addEventListener("mouseleave", () => {
-        autoplayInterval = setInterval(nextSlide, 4000);
+        autoplayInterval = setInterval(nextSlide, 3000);
       });
     }
   }
