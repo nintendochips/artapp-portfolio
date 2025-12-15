@@ -912,6 +912,51 @@ a{
   text-align: center;
 }
 
+/* Scroll to Top Button */
+.scroll-to-top{
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: var(--glass-strong);
+  border: 1px solid var(--stroke);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all var(--transition-smooth);
+  z-index: 999;
+}
+
+.scroll-to-top.visible{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--stroke-bright);
+  background: rgba(251,191,36,.2);
+}
+
+.scroll-to-top svg{
+  width: 24px;
+  height: 24px;
+  stroke: var(--accent-gold);
+  stroke-width: 2.5;
+  fill: none;
+}
+
 /* =========================
    RESPONSIVE
    ========================= */
