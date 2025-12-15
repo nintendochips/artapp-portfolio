@@ -51,6 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateCarousel(index) {
     // Fade out
     if (carouselImage && carouselTitle && carouselCaption) {
+      carouselImage.style.transition = "opacity 0.6s ease";
+      carouselTitle.style.transition = "opacity 0.6s ease";
+      carouselCaption.style.transition = "opacity 0.6s ease";
+      
       carouselImage.style.opacity = "0";
       carouselTitle.style.opacity = "0";
       carouselCaption.style.opacity = "0";
@@ -73,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         carouselImage.style.opacity = "1";
         carouselTitle.style.opacity = "1";
         carouselCaption.style.opacity = "1";
-      }, 300);
+      }, 600);
 
       // Update indicators
       indicators.forEach((indicator, i) => {
