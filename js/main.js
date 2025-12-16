@@ -49,15 +49,17 @@ document.addEventListener("DOMContentLoaded", () => {
   let autoplayInterval;
 
   function updateCarousel(index) {
-    // Fade out
+    // Smooth fade transition
     if (carouselImage && carouselTitle && carouselCaption) {
-      carouselImage.style.transition = "opacity 0.6s ease";
-      carouselTitle.style.transition = "opacity 0.6s ease";
-      carouselCaption.style.transition = "opacity 0.6s ease";
+      carouselImage.style.transition = "opacity 0.5s ease-in-out";
+      carouselTitle.style.transition = "opacity 0.5s ease-in-out, transform 0.5s ease-in-out";
+      carouselCaption.style.transition = "opacity 0.5s ease-in-out, transform 0.5s ease-in-out";
       
       carouselImage.style.opacity = "0";
       carouselTitle.style.opacity = "0";
       carouselCaption.style.opacity = "0";
+      carouselTitle.style.transform = "translateY(-10px)";
+      carouselCaption.style.transform = "translateY(-10px)";
 
       setTimeout(() => {
         // Try to load real image, fallback to placeholder if it fails
@@ -73,11 +75,15 @@ document.addEventListener("DOMContentLoaded", () => {
         carouselTitle.textContent = themes[index].title;
         carouselCaption.textContent = themes[index].caption;
 
-        // Fade in
-        carouselImage.style.opacity = "1";
-        carouselTitle.style.opacity = "1";
-        carouselCaption.style.opacity = "1";
-      }, 600);
+        // Smooth fade in
+        requestAnimationFrame(() => {
+          carouselImage.style.opacity = "1";
+          carouselTitle.style.opacity = "1";
+          carouselCaption.style.opacity = "1";
+          carouselTitle.style.transform = "translateY(0)";
+          carouselCaption.style.transform = "translateY(0)";
+        });
+      }, 500);
 
       // Update indicators
       indicators.forEach((indicator, i) => {
@@ -95,9 +101,9 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCarousel(currentIndex);
   }
 
-  // Auto-play carousel every 3 seconds (faster)
+  // Auto-play carousel every 4 seconds for smoother experience
   if (carouselImage) {
-    autoplayInterval = setInterval(nextSlide, 3000);
+    autoplayInterval = setInterval(nextSlide, 4000);
 
     // Click indicators to change manually
     indicators.forEach((indicator, index) => {
@@ -106,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCarousel(index);
         // Reset autoplay
         clearInterval(autoplayInterval);
-        autoplayInterval = setInterval(nextSlide, 3000);
+        autoplayInterval = setInterval(nextSlide, 4000);
       });
     });
 
@@ -117,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(autoplayInterval);
       });
       heroCard.addEventListener("mouseleave", () => {
-        autoplayInterval = setInterval(nextSlide, 3000);
+        autoplayInterval = setInterval(nextSlide, 4000);
       });
     }
   }
