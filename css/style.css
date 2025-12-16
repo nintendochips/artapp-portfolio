@@ -498,6 +498,7 @@ a{
   transform: translateX(4px);
 }
 
+/* Hero Card - Optimized */
 /* Hero Card - Optimized with Fixed Size */
 .hero-card{ 
   border-radius: var(--radius-xl);
@@ -844,8 +845,8 @@ a{
   font-size: .9rem;
 }
 
-.photo-card p:last-of-type{
-  margin-bottom: 1rem;
+.photo-card figcaption p:last-of-type{
+  margin-bottom: .8rem;
 }
 
 .photo-meta{
