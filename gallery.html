@@ -53,46 +53,51 @@
           </p>
 
           <div class="photo-grid">
-            <figure class="photo-card glass-card">
+            <figure class="photo-card glass-card" onclick="openLightbox('images/light-shadow-1.jpg')">
               <img src="images/light-shadow-1.jpg" alt="Light & Shadow 1" />
               <figcaption>
                 <h3>[Photo Title 1]</h3>
+                <p class="composition-tech">[Composition Techniques Used: e.g., Rule of thirds, leading lines, contrast]</p>
                 <p>[Explanation of how light and shadow create mood in this image.]</p>
                 <span class="photo-meta">Photographer: [Member Name]</span>
               </figcaption>
             </figure>
 
-            <figure class="photo-card glass-card">
+            <figure class="photo-card glass-card" onclick="openLightbox('images/light-shadow-2.jpg')">
               <img src="images/light-shadow-2.jpg" alt="Light & Shadow 2" />
               <figcaption>
                 <h3>[Photo Title 2]</h3>
+                <p class="composition-tech">[Composition Techniques Used]</p>
                 <p>[Explanation of the light and shadow composition.]</p>
                 <span class="photo-meta">Photographer: [Member Name]</span>
               </figcaption>
             </figure>
 
-            <figure class="photo-card glass-card">
+            <figure class="photo-card glass-card" onclick="openLightbox('images/light-shadow-3.jpg')">
               <img src="images/light-shadow-3.jpg" alt="Light & Shadow 3" />
               <figcaption>
                 <h3>[Photo Title 3]</h3>
+                <p class="composition-tech">[Composition Techniques Used]</p>
                 <p>[Explanation of the dramatic lighting effect.]</p>
                 <span class="photo-meta">Photographer: [Member Name]</span>
               </figcaption>
             </figure>
 
-            <figure class="photo-card glass-card">
+            <figure class="photo-card glass-card" onclick="openLightbox('images/light-shadow-4.jpg')">
               <img src="images/light-shadow-4.jpg" alt="Light & Shadow 4" />
               <figcaption>
                 <h3>[Photo Title 4]</h3>
+                <p class="composition-tech">[Composition Techniques Used]</p>
                 <p>[Explanation of contrast and silhouette.]</p>
                 <span class="photo-meta">Photographer: [Member Name]</span>
               </figcaption>
             </figure>
 
-            <figure class="photo-card glass-card">
+            <figure class="photo-card glass-card" onclick="openLightbox('images/light-shadow-5.jpg')">
               <img src="images/light-shadow-5.jpg" alt="Light & Shadow 5" />
               <figcaption>
                 <h3>[Photo Title 5]</h3>
+                <p class="composition-tech">[Composition Techniques Used]</p>
                 <p>[Explanation of light gradients and mood.]</p>
                 <span class="photo-meta">Photographer: [Member Name]</span>
               </figcaption>
@@ -338,6 +343,12 @@
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Full size image">
+  </div>
 
   <script src="js/main.js"></script>
 </body>
