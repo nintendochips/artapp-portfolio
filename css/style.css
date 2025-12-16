@@ -839,6 +839,15 @@ a{
   font-size: .95rem;
 }
 
+.photo-card .composition-tech{
+  margin: 0 0 .4rem;
+  font-size: .9rem;
+}
+
+.photo-card p:last-of-type{
+  margin-bottom: 1rem;
+}
+
 .photo-meta{
   font-size: .8rem;
   letter-spacing: .15em;
