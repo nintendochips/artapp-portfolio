@@ -498,22 +498,27 @@ a{
   transform: translateX(4px);
 }
 
-/* Hero Card - Optimized */
+/* Hero Card - Optimized with Fixed Size */
 .hero-card{ 
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 .hero-card img{
   height: 320px;
   width: 100%;
   object-fit: cover;
+  object-position: center;
   filter: saturate(1.1) contrast(1.05);
   transition: transform var(--transition-slow), opacity 0.5s ease;
   /* Performance optimization */
   will-change: transform;
+  display: block;
 }
 
 .hero-card:hover img{
@@ -525,6 +530,7 @@ a{
   background: var(--glass);
   border-top: 1px solid var(--stroke-soft);
   transition: all 0.5s ease;
+  min-height: 110px;
 }
 
 .hero-card-title{ 
